@@ -4,11 +4,18 @@
 """
 
 import os
+import sys
+from pathlib import Path
 from typing import Dict, Optional
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 from dotenv import load_dotenv
-from .logger import get_logger
+
+# Добавляем путь к src для импортов
+src_path = Path(__file__).parent.parent
+sys.path.insert(0, str(src_path))
+
+from monitoring.logger import get_logger
 
 load_dotenv()
 

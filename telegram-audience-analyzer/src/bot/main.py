@@ -4,6 +4,8 @@
 """
 
 import os
+import sys
+from pathlib import Path
 from telegram import Update
 from telegram.ext import (
     Application,
@@ -14,12 +16,16 @@ from telegram.ext import (
 )
 from dotenv import load_dotenv
 
-from ..database.db_manager import DatabaseManager
-from ..ui.handlers import button_callback
-from .handlers.start import start_handler
-from .handlers.auth_handlers import auth_conversation_handler
-from .handlers.analyze import channels_message_handler
-from ..monitoring.logger import setup_logger, get_logger
+# Добавляем путь к src для импортов
+src_path = Path(__file__).parent.parent
+sys.path.insert(0, str(src_path))
+
+from database.db_manager import DatabaseManager
+from ui.handlers import button_callback
+from handlers.start import start_handler
+from handlers.auth_handlers import auth_conversation_handler
+from handlers.analyze import channels_message_handler
+from monitoring.logger import setup_logger, get_logger
 
 load_dotenv()
 

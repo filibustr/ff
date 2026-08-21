@@ -3,18 +3,26 @@
 """
 
 import asyncio
+import sys
+import os
+from pathlib import Path
 from typing import Optional
 from telegram import Update, CallbackQuery
 from telegram.ext import ContextTypes
-from ..database.db_manager import DatabaseManager
-from ..telegram_client.client import get_client_for_user
-from ..telegram_client.collector import Collector
-from ..telegram_client.audience_finder import AudienceFinder
-from ..analysis.segmenter import AudienceSegmenter
-from ..generation.message_builder import MessageBuilder
-from ..delivery.broadcaster import Broadcaster
-from ..ui.menus import main_menu, analyze_menu, audience_menu, back_keyboard
-from ..monitoring.logger import get_logger
+
+# Добавляем путь к src для импортов
+src_path = Path(__file__).parent.parent
+sys.path.insert(0, str(src_path))
+
+from database.db_manager import DatabaseManager
+from telegram_client.client import get_client_for_user
+from telegram_client.collector import Collector
+from telegram_client.audience_finder import AudienceFinder
+from analysis.segmenter import AudienceSegmenter
+from generation.message_builder import MessageBuilder
+from delivery.broadcaster import Broadcaster
+from ui.menus import main_menu, analyze_menu, audience_menu, back_keyboard
+from monitoring.logger import get_logger
 
 logger = get_logger(__name__)
 

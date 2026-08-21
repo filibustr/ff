@@ -7,7 +7,13 @@ import sqlite3
 from pathlib import Path
 from typing import Optional, List, Dict, Any
 from datetime import datetime
-from .logger import get_logger
+import sys
+import os
+
+# Добавляем путь к модулю monitoring
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
+from monitoring.logger import get_logger
 
 logger = get_logger(__name__)
 
