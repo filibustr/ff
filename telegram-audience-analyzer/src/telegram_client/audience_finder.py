@@ -6,8 +6,8 @@
 import asyncio
 from typing import List, Dict, Any, Optional
 from telethon import TelegramClient
-from .collector import Collector
-from .logger import get_logger
+
+from monitoring.logger import get_logger
 
 logger = get_logger(__name__)
 
