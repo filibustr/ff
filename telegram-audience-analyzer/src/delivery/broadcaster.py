@@ -8,7 +8,7 @@ import random
 from typing import List, Dict, Any, Optional
 from datetime import datetime, timedelta
 from telethon import TelegramClient
-from telethon.errors import FloodWaitError, PeerNotAccessibleError
+from telethon.errors import FloodWaitError
 from monitoring.logger import get_logger
 
 logger = get_logger(__name__)
@@ -127,16 +127,16 @@ class Broadcaster:
                 await asyncio.sleep(e.seconds + 5)
                 stats['errors'] += 1
                 
-            except PeerNotAccessibleError:
-                logger.warning("Peer not accessible", username=username)
-                stats['errors'] += 1
-                
             except Exception as e:
-                logger.error(
-                    "Failed to send message",
-                    username=username,
-                    error=str(e)
-                )
+                error_name = type(e).__name__
+                if 'Peer' in error_name or 'accessible' in str(e).lower():
+                    logger.warning("Peer not accessible", username=username)
+                else:
+                    logger.error(
+                        "Failed to send message",
+                        username=username,
+                        error=str(e)
+                    )
                 stats['errors'] += 1
             
             # Пауза между сообщениями (случайная)
