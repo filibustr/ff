@@ -104,7 +104,7 @@ async def post_shutdown(application: Application) -> None:
     Args:
         application: Приложение
     """
-    from ..telegram_client.client import disconnect_all_clients
+    from telegram_client.client import disconnect_all_clients
     await disconnect_all_clients()
     logger.info("Bot shutdown complete")
 

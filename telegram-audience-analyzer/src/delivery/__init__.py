@@ -2,6 +2,6 @@
 Модуль доставки сообщений.
 """
 
-from .broadcaster import Broadcaster
+from delivery.broadcaster import Broadcaster
 
 __all__ = ['Broadcaster']

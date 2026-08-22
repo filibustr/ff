@@ -5,9 +5,9 @@
 
 from telegram import Update
 from telegram.ext import ContextTypes
-from ..database.db_manager import DatabaseManager
-from ..ui.menus import analyze_menu, back_keyboard
-from ..monitoring.logger import get_logger
+from database.db_manager import DatabaseManager
+from ui.menus import analyze_menu, back_keyboard
+from monitoring.logger import get_logger
 
 logger = get_logger(__name__)
 

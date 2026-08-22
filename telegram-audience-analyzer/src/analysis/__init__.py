@@ -2,6 +2,6 @@
 Модуль анализа.
 """
 
-from .segmenter import AudienceSegmenter
+from analysis.segmenter import AudienceSegmenter
 
 __all__ = ['AudienceSegmenter']

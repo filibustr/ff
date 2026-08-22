@@ -8,8 +8,8 @@ from typing import List, Dict, Any, Optional
 import os
 from openai import AsyncOpenAI
 from dotenv import load_dotenv
-from ..monitoring.logger import get_logger
-from ..monitoring.cost_tracker import CostTracker
+from monitoring.logger import get_logger
+from monitoring.cost_tracker import CostTracker
 
 load_dotenv()
 
