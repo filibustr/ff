@@ -24,17 +24,15 @@ wheels/
 # Virtual environments
 venv/
 ENV/
-env/
-.venv/
 env.bak/
-venv.bak/
+.venv/
+env/
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
-*.tmp
 
 # Logs
 *.log
@@ -48,6 +46,16 @@ venv.bak/
 .coverage
 coverage/
 htmlcov/
+
+# Testing
 .pytest_cache/
 .mypy_cache/
+
+# Distribution
+*.tar.gz
+*.whl
+
+# OS
+.DS_Store
+Thumbs.db
 ```

@@ -2,6 +2,6 @@
 Модуль базы данных.
 """
 
-from database.db_manager import DatabaseManager
+from .db_manager import DatabaseManager
 
 __all__ = ['DatabaseManager']

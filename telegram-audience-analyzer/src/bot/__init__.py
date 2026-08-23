@@ -2,11 +2,11 @@
 Модуль бота - обработчики команд и основная логика.
 """
 
-from bot.main import main, create_application
-from bot.handlers.start import start_handler
-from bot.handlers.auth_handlers import auth_conversation_handler
-from bot.handlers.analyze import channels_message_handler
-from bot.handlers.broadcast import broadcast_placeholder
+from .main import main, create_application
+from .handlers.start import start_handler
+from .handlers.auth_handlers import auth_conversation_handler
+from .handlers.analyze import channels_message_handler
+from .handlers.broadcast import broadcast_placeholder
 
 __all__ = [
     'main',

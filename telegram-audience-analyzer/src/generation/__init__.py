@@ -2,6 +2,6 @@
 Модуль генерации сообщений.
 """
 
-from generation.message_builder import MessageBuilder
+from .message_builder import MessageBuilder
 
 __all__ = ['MessageBuilder']
