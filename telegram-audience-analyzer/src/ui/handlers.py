@@ -301,7 +301,7 @@ async def _handle_run_audience_search(
         logger.error("Audience search failed", user_id=user_id, error=str(e))
         await query.edit_message_text(f"❌ Ошибка при поиске: {str(e)}")
     finally:
-        from ..telegram_client.client import disconnect_client
+        from telegram_client.client import disconnect_client
         await disconnect_client(user_id)
 
 

@@ -22,9 +22,9 @@ sys.path.insert(0, str(src_path))
 
 from database.db_manager import DatabaseManager
 from ui.handlers import button_callback
-from handlers.start import start_handler
-from handlers.auth_handlers import auth_conversation_handler
-from handlers.analyze import channels_message_handler
+from bot.handlers.start import start_handler
+from bot.handlers.auth_handlers import auth_conversation_handler
+from bot.handlers.analyze import channels_message_handler
 from monitoring.logger import setup_logger, get_logger
 
 load_dotenv()
