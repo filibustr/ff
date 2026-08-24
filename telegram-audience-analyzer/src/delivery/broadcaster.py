@@ -9,7 +9,7 @@ from typing import List, Dict, Any, Optional
 from datetime import datetime, timedelta
 from telethon import TelegramClient
 from telethon.errors import FloodWaitError
-from monitoring.logger import get_logger
+from src.monitoring.logger import get_logger
 
 logger = get_logger(__name__)
 

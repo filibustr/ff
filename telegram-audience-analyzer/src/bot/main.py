@@ -20,12 +20,12 @@ from dotenv import load_dotenv
 src_path = Path(__file__).parent.parent
 sys.path.insert(0, str(src_path))
 
-from database.db_manager import DatabaseManager
-from ui.handlers import button_callback
-from .handlers.start import start_handler
-from .handlers.auth_handlers import auth_conversation_handler
-from .handlers.analyze import channels_message_handler
-from monitoring.logger import setup_logger, get_logger
+from src.database.db_manager import DatabaseManager
+from src.ui.handlers import button_callback
+from src.bot.handlers.start import start_handler
+from src.bot.handlers.auth_handlers import auth_conversation_handler
+from src.bot.handlers.analyze import channels_message_handler
+from src.monitoring.logger import setup_logger, get_logger
 
 load_dotenv()
 

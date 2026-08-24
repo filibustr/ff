@@ -4,18 +4,18 @@
 
 import asyncio
 from typing import Optional
-from telegram import Update, CallbackQuery
+from telegram import Update, CallbackQuery, InlineKeyboardButton
 from telegram.ext import ContextTypes
 
-from database.db_manager import DatabaseManager
-from telegram_client.client import get_client_for_user
-from telegram_client.collector import Collector
-from telegram_client.audience_finder import AudienceFinder
-from analysis.segmenter import AudienceSegmenter
-from generation.message_builder import MessageBuilder
-from delivery.broadcaster import Broadcaster
-from .menus import main_menu, analyze_menu, audience_menu, back_keyboard
-from monitoring.logger import get_logger
+from src.database.db_manager import DatabaseManager
+from src.telegram_client.client import get_client_for_user, disconnect_client
+from src.telegram_client.collector import Collector
+from src.telegram_client.audience_finder import AudienceFinder
+from src.analysis.segmenter import AudienceSegmenter
+from src.generation.message_builder import MessageBuilder
+from src.delivery.broadcaster import Broadcaster
+from src.ui.menus import main_menu, analyze_menu, audience_menu, back_keyboard
+from src.monitoring.logger import get_logger
 
 logger = get_logger(__name__)
 
@@ -84,6 +84,9 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     except Exception as e:
         logger.error("Callback handler error", user_id=user_id, callback_data=data, error=str(e))
         await query.answer(f"Ошибка: {str(e)}", show_alert=True)
+    finally:
+        # Удаляем дублирующий импорт в конце файла
+        pass
 
 
 async def _handle_login(query: CallbackQuery, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -386,7 +389,3 @@ async def _handle_back_main(
     text += "Выберите действие:" if auth else "Для начала работы подключите ваш Telegram аккаунт."
     
     await query.edit_message_text(text, reply_markup=main_menu(auth=auth))
-
-
-# Импортируем InlineKeyboardButton здесь чтобы избежать циклического импорта
-from telegram import InlineKeyboardButton

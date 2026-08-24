@@ -13,7 +13,7 @@ import os
 # Добавляем путь к модулю monitoring
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from monitoring.logger import get_logger
+from src.monitoring.logger import get_logger
 
 logger = get_logger(__name__)
 

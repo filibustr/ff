@@ -7,7 +7,7 @@ from telethon import TelegramClient
 from telethon.sessions import StringSession
 from dotenv import load_dotenv
 
-from monitoring.logger import get_logger
+from src.monitoring.logger import get_logger
 
 load_dotenv()
 
