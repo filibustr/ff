@@ -1,0 +1,19 @@
+build:
+  type: python
+  context: .
+
+run:
+  type: python
+  script: app.py
+
+env:
+  - TELEGRAM_BOT_TOKEN
+  - TELEGRAM_API_ID
+  - TELEGRAM_API_HASH
+  - OPENAI_API_KEY
+
+mountpoint:
+  - path: /data
+    volume: data
+
+port: 80
